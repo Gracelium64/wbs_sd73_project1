@@ -34,7 +34,17 @@ console.log("User Input:", userInput);
 console.log("Thinking...");
 await delay(500);
 console.log("(Agentic AI slop in progress)");
-await delay(2000);
+
+const spinner = ["|", "/", "-", "\\"];
+let spinnerIndex = 0;
+
+const spinnerInterval = setInterval(() => {
+  process.stdout.write(`\r${spinner[spinnerIndex]} `);
+  spinnerIndex = (spinnerIndex + 1) % spinner.length;
+}, 42);
+
+await delay(2500);
+clearInterval(spinnerInterval);
 
 if (mode === "encrypt") {
   const keepItSafe = await keepItSecret(userInput, shift);
