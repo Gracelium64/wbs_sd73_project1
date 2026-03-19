@@ -38,7 +38,7 @@ console.log("(Agentic AI slop in progress)");
 const spinner = ["|", "/", "-", "\\"];
 let spinnerIndex = 0;
 
-const spinnerInterval = setInterval(() => {
+const spinnerInterval = setInterval(function () {
   process.stdout.write(`\r${spinner[spinnerIndex]} `);
   spinnerIndex = (spinnerIndex + 1) % spinner.length;
 }, 42);
